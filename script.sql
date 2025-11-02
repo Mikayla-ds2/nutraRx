@@ -43,6 +43,8 @@ order by name asc;
 select interaction, count(DISTINCT(drug_id)) as drug_count from interactions
 group by interaction
 order by drug_count desc;
+-- this is the code used for finding similar enough interactions --
+
 
 select drug_id, name from interactions
 where interaction = 'Avoid alcohol'
@@ -61,3 +63,11 @@ join interactions i2 on i1.drug_id = i2.drug_id and i1.interaction < i2.interact
 group by i1.interaction, i2.interaction
 order by drug_count desc
 limit 10;
+-- shows me the top 10 pairings consisting of interactions by drug count --
+
+select count(*) from interactions
+where interaction in ('Avoid potassium-containing products', 'Potassium products increase the risk of hyperkalemia')
+having count(DISTINCT interaction) >= 2;
+
+select count(*) from interactions
+where interaction = 'Potassium products increase the risk of hyperkalemia'
