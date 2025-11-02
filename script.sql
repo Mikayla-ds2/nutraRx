@@ -7,10 +7,10 @@ create table if not exists interactions (
     name VARCHAR(300),
     food_interactions VARCHAR(1500),
     drug_id int,
-    interaction_count int
+    interaction VARCHAR(1500)
 )
 
-/copy interactions(interaction_id, name, food_interactions, drug_id, interaction_count)
+/copy interactions(interaction_id, name, food_interactions, drug_id, interaction)
 from '/tmp/drug_to_food_interactions.csv'
 DELIMITER ','
 csv HEADER;
