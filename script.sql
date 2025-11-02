@@ -1,6 +1,7 @@
 -- head of file --
 drop table if exists interactions;
 
+-- gonna need to change table; made id for drugs - new one would be for interactions, drug_id would just be int --
 create table if not exists interactions (
     drug_id SERIAL PRIMARY KEY,
     name VARCHAR(300),
