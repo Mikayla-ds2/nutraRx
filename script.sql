@@ -45,6 +45,10 @@ group by interaction
 order by drug_count desc;
 -- this is the code used for finding similar enough interactions --
 
+-- attempting something without having to use tokens --
+select DISTINCT interaction from interactions
+where interaction like '%avoid%'
+
 
 select drug_id, name from interactions
 where interaction = 'Avoid alcohol'
